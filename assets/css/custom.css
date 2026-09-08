@@ -173,7 +173,7 @@
 
 .icon_some_large:hover {
     color: #285f88;
-    transform: scale(1.1);
+    transform: none;
 }
 
 .icon_large {
@@ -187,8 +187,8 @@
 }
 
 .icon_large:hover {
-    color: #1a365d;
-    transform: scale(1.05);
+    color: #285f88;
+    transform: none;
 }
 
 .minipadding {
@@ -339,17 +339,11 @@ h4 {
 
 
 /* Offset anchors for links to adjust for fixed nav bar */
-:target {
-    display: block;
-    position: relative;
-    top: -72px; /* Matches navbar height */
-    visibility: hidden;
-    scroll-margin-top: 72px; /* Modern approach for anchor scrolling */
-  }
-  
-/* Add scroll margin to all section anchors */
-[id] {
-    scroll-margin-top: 72px;
+#services,
+#info,
+#contact,
+#about {
+    scroll-margin-top: 0px;
 }
 
 .logoBox {
@@ -476,8 +470,8 @@ h4 {
 }
 
 .card_style:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .card_style .card-body {
@@ -501,6 +495,55 @@ h4 {
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
+}
+
+
+/* Compact services grid */
+.services-grid .card_style {
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.services-grid .card_style .card-body {
+    padding: 0.4rem;
+}
+
+.services-grid .card_style .card-title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.services-grid .card_style .card-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.services-grid .icon_large {
+    padding: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+
+
+/* Compact contact buttons */
+#contact .icon_some_large {
+    padding: 0.5em;
+    margin: 0.25em;
+    font-size: 16px;
+}
+
+
+/* Contact links - behave like text, not buttons */
+#contact .icon_some_large {
+    user-select: text;
+    -webkit-user-select: text;
+    cursor: text;
+}
+
+#contact .icon_some_large:hover {
+    color: #285f88;
+    transform: none;
 }
 
 /* Manage Display Headers for Mobile Devices */
