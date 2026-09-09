@@ -10,25 +10,6 @@
     margin-bottom: 0;
 }
 
-/* Make banner background extend to top to eliminate white gap */
-.bg-primary.page-view {
-    margin-top: 0 !important;
-    padding-top: 55px !important; /* 72px navbar + 80px content */
-    position: relative;
-}
-
-/* Ensure no gap after banner */
-.page-view + * {
-    margin-top: 0 !important;
-}
-
-.page-view .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
 .bg-primary {
     background: linear-gradient(135deg, #1a365d 0%, #2d3748 50%, #285f88 100%) !important;
     position: relative;
@@ -37,10 +18,10 @@
     padding-top: 0 !important;
 }
 
-/* Special handling for banner to eliminate white gap */
+/* Banner: extend background up to cover gap behind fixed navbar */
 .bg-primary.page-view {
+    padding-top: 55px !important; /* 72px navbar + 80px content */
     overflow: visible;
-    background: linear-gradient(135deg, #1a365d 0%, #2d3748 50%, #285f88 100%) !important;
 }
 
 /* Extend banner background up to cover white gap */
@@ -58,10 +39,7 @@
 .bg-primary::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -78,10 +56,6 @@
     background-color: #f7fafc !important;
 }
 
-.bg_custom {
-    background-color: #edf0fa;
-}
-
 .navbar {
     font-size: 16px;
     padding: 1rem 0;
@@ -90,13 +64,6 @@
     min-height: 72px; /* Ensures consistent navbar height */
     width: 100%;
     margin: 0;
-}
-
-.navbar .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
 }
 
 .navbar-brand img {
@@ -151,11 +118,6 @@
     border-bottom: none !important;
 }
 
-/*
-.icon_some_small {
-    color: #edf0fa;
-} */
-
 .icon_some_small:hover {
     color: #edf0fa;
 }
@@ -186,15 +148,6 @@
     margin-bottom: 1rem;
 }
 
-.icon_large:hover {
-    color: #285f88;
-    transform: none;
-}
-
-.minipadding {
-    padding-top: 70px !important;
- }
- 
 .subtitle_text1 {
     margin-top: 1.5em;
     font-size: 1.25rem;
@@ -212,22 +165,8 @@
     line-height: 1.6;
 }
 
-span.emphasize {
-    color: #37A8E1;
-}
-
 strong {
     font-weight: 570;
-}
-
-small {
-    font-weight: 10;
-}
-
-.note {
-    margin-top: 3em;
-    font-style: italic;
-    color: gray;
 }
 
 html {
@@ -250,7 +189,6 @@ html {
 }
 
 /* Remove any default margins that create white space */
-.bg-primary + .container,
 .page-view + .container {
     margin-top: 0 !important;
     padding-top: 4rem;
@@ -281,11 +219,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Ensure banner starts at top with no white gap */
-.bg-primary.page-view {
-    margin-top: 0 !important;
-}
-
 p {
     margin-bottom: 1.25rem;
     color: #4a5568;
@@ -311,9 +244,27 @@ p {
     color: rgba(255, 255, 255, 1) !important;
 }
 
-.compact {
-    margin-top: 0.75em;
-    color: red;
+/* Lift content above decorative overlays */
+.content-layer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero heading */
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Hero image */
+.hero-image {
+    border-radius: 12px;
+}
+
+/* Footer divider */
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 h2 {
@@ -338,37 +289,7 @@ h4 {
 }
 
 
-/* Offset anchors for links to adjust for fixed nav bar */
-#services,
-#info,
-#contact,
-#about {
-    scroll-margin-top: 0px;
-}
-
-.logoBox {
-    width: 100%;
-    height: 100%;
-    top: -35px;
-    padding-bottom: 20px;
-    background-color:#000000;
-}
-
 /* Supporters logo */
-.logoContainer {
-	display: flex; 
-    flex-flow: row wrap;
-    justify-content: space-between;
-    padding: 1px;
-    position: relative;
-  }
-
-.logos {
-    padding-top: 35px;
-    display: inline-flex;
-    height: 100%;
-    width: 100%;
-}
 
 /* Partners Logos - Fixed width row with wrap */
 .partners-logos-container {
@@ -399,61 +320,16 @@ h4 {
 }
 
 /* Individual partner logo sizing - adjust as needed */
-.partner-logo-uio {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
-.partner-logo-uib {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
-.partner-logo-neic {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
-.partner-logo-naic {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
-.partner-logo-alice {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
-.partner-logo-atlas {
-    width: 125px;
-    height: auto;
-    max-height: 70px;
-}
-
+.partner-logo-uio,
+.partner-logo-uib,
+.partner-logo-neic,
+.partner-logo-naic,
+.partner-logo-alice,
+.partner-logo-atlas,
 .partner-logo-wlcg {
     width: 125px;
     height: auto;
     max-height: 70px;
-}
-
-.subpage-header {
-	margin-top: 2rem;
-	padding: 2rem 0rem 1rem 0rem;
-}
-
-.subpage-header + div {
-    margin-top: 3em;
-}
-
-@media only screen and (min-width: 768px) {
-	.subpage-header {
-		margin-top: 2rem;
-	}
 }
 
 /* Modern Card style */
@@ -467,11 +343,6 @@ h4 {
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.card_style:hover {
-    transform: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .card_style .card-body {
@@ -526,16 +397,11 @@ h4 {
 
 
 
-/* Compact contact buttons */
+/* Compact contact links - behave like text, not buttons */
 #contact .icon_some_large {
     padding: 0.5em;
     margin: 0.25em;
     font-size: 16px;
-}
-
-
-/* Contact links - behave like text, not buttons */
-#contact .icon_some_large {
     user-select: text;
     -webkit-user-select: text;
     cursor: text;
@@ -548,23 +414,6 @@ h4 {
 
 /* Manage Display Headers for Mobile Devices */
 @media (max-width: 576px) {
-    .display-1 {
-        font-size: 4rem;
-        font-weight: 800;
-        line-height: 1.0;
-    }
-    
-    .display-2 {
-        font-size: 2.75rem;
-        font-weight: 300;
-        line-height: 1.0;
-    }
-
-    .display-3 {
-        font-size: 2.25rem;
-        font-weight: 300;
-        line-height: 1.0;
-    }
 
     .display-4 {
         font-size: 1.75rem;
@@ -578,10 +427,6 @@ h4 {
 
     h3{
         font-size: 1.5rem;
-    }
-
-    h4{
-        font-size: 1.25rem;
     }
 
     h5{
@@ -611,20 +456,12 @@ h4 {
     }
 
     .icon_large {
-        color: #285f88;
-        display: block;
-        text-align: center;
         padding: 0.5rem;
-        transition: all 0.3s ease;
         font-size: 2rem;
     }
     .icon_some_large {
-        color: #134f7d;
-        display: inline-block;
-        text-align: center;
         padding: 0.5em;
         margin: 0.25em;
-        transition: all 0.3s ease;
         font-size: 18px;
     }
 }
@@ -633,30 +470,11 @@ h4 {
     h3{
         font-size: 1.1rem;
     }
-
-    h4{
-        font-size: 1.1rem;
-        margin-top: 0.5em;
-    }
 }
 
 
-@media (max-width: 350px) {
-    h3{
-        font-size: 1.1rem;
-    }
-
-    h4{
-        margin-top: 0.5em;
-    }
-}
 
 @media (max-width: 320px) {
-    .display-1 {
-        font-size: 3rem;
-        font-weight: 800;
-        line-height: 1.0;
-    }
 
     h2{
         font-size: 1.3rem;
@@ -665,12 +483,18 @@ h4 {
     h3{
         font-size: 1rem;
     }
+}
 
-    h4{
-        font-size: 0.9rem;
-    }
 
-    .index .page-hero .credits{
-        margin-top: 3rem;
-    }
+/* Branding colour swatches */
+.color-swatches {
+    font-size: 16px;
+    display: flex;
+    width: 70%;
+}
+
+.color-swatch {
+    flex: 1;
+    padding-top: 30px;
+    text-align: center;
 }
