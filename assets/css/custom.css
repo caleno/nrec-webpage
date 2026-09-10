@@ -60,12 +60,10 @@
     font-size: 16px;
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     min-height: 72px; /* Ensures consistent navbar height */
     width: 100%;
     margin: 0;
-    overflow: visible;
-    position: relative;
-    background: rgba(26, 54, 93, 0.95);
 }
 
 .navbar-brand img {
@@ -234,20 +232,6 @@ p {
 
 .text-muted {
     color: #718096 !important;
-}
-
-/* Prevent navbar shift when toggling burger menu */
-.navbar-collapse {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, #1a365d 0%, #2d3748 50%, #285f88 100%);
-    display: none !important;
-    z-index: 1050;
-}
-.navbar-collapse.show {
-    display: block !important;
 }
 
 .nav-link {
